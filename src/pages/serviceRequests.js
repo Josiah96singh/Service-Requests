@@ -10,7 +10,6 @@ import { getRequestsData, createRequest } from '../actions/requestsActions'
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withStyles } from '@material-ui/core/styles';
-import { reqTypeOptions } from '../sampleData';
 
 const styles = theme => ({
   tableContainer: {
