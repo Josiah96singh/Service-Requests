@@ -70,3 +70,21 @@ text-transform: uppercase;
 .Table-Container {
   width: 80%;
 }
+
+.Drawer-Buttons {
+  display: inline-flex;
+  justify-content: center;
+  margin-top: 5em;
+}
+
+.Drawer-Buttons Button {
+    width: 10em;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 5px;
+    background-color: rgb(4, 152, 189);
+}
+
+.Drawer-Buttons Button:hover {
+  background-color: rgb(1, 182, 228);
+}

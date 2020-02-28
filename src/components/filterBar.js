@@ -39,21 +39,6 @@ const styles = theme => ({
   
 
 class filterBar extends Component {
-    // constructor(props) {
-    //     super(props)
-    //     this.state= {
-    //         reqType: ''
-    //     }
-    //     this.handleFilter = this.handleFilter.bind(this)
-    // }
-
-    // handleFilter = (e) => {
-    //     e.preventDefault();
-
-    //     const data = this.state.reqType
-
-    //     this.props.filterFields(data)
-    // }
     render() {
         const { classes } = this.props;
         return (
@@ -70,6 +55,7 @@ class filterBar extends Component {
             <div className={classes.inputGroup}>
             <p>Search</p>
              <TextField
+             placeholder="Search"
              className={classes.input}
              id="filled-search"
              type="search"
@@ -82,9 +68,9 @@ class filterBar extends Component {
             <p>Request Types</p>
             <Select
             className={classes.input}
-            value={this.props.filterFields}
+            value={this.props.reqType}
             options={reqTypeOptions}
-            onChange={selected => this.setState({reqType: selected})} />
+            onChange={this.props.onTypeSelect} />
             </div>
 
 
@@ -93,7 +79,9 @@ class filterBar extends Component {
             <p>Priority</p>
             <Select
             className={classes.input}
-            options={reqPriorityOptions} />
+            value={this.props.reqPriority}
+            options={reqPriorityOptions}
+            onChange={this.props.onPrioritySelect} />
             </div>
 
              {/* STATUS FILTER */}

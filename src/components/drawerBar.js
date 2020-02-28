@@ -16,12 +16,12 @@ const useStyles = makeStyles({
       },
       input: {
         width: '20em',
-        height: 30
+        height: 10
       },
       textAreaInput: {
         width: '20em',
-        height: 50,
-        paddingBottom: 20
+        height: 30,
+        paddingBottom: 50
       },
       drawerTitle: {
         textAlign: 'start',
@@ -29,20 +29,17 @@ const useStyles = makeStyles({
         marginBottom: 0,
         fontWeight: 500,
         textTransform: 'uppercase',
-          },
-          btn: {
-            width: 80,
           }
   });
-
 
 export default function drawerBar(props) {
      // eslint-disable-next-line react-hooks/rules-of-hooks
   const classes = useStyles();
     const { 
         toggleDrawerClose, 
-        onChange, 
-        onSelect,
+        onChange,
+        onPrioritySelect,
+        onTypeSelect,
         submitRequest, 
         right, 
         reqDescription, 
@@ -71,11 +68,11 @@ export default function drawerBar(props) {
 
         {/* REQUEST TYPE */}
         <div className={classes.inputGroup}>
-		<p>Request Type</p>
-		<Select
+		    <p>Request Type</p>
+		    <Select
+              name="reqType"
         className={classes.input}
-        name="reqType"
-        onChange={props.onSelect} 
+        onChange={onTypeSelect} 
         options={reqTypeOptions}
         value={reqType} 
         />
@@ -116,7 +113,7 @@ export default function drawerBar(props) {
 		<Select
         className={classes.input}
         name="reqPriority"
-        onChange={props.onSelect} 
+        onChange={onPrioritySelect} 
         options={reqPriorityOptions}
         value={reqPriority}
          />
@@ -129,7 +126,6 @@ export default function drawerBar(props) {
         variant="contained" 
         color="primary">Cancel
         </Button>
-        <br/>
         <Button 
         className={classes.btn}
         onClick={submitRequest} 
