@@ -2,37 +2,71 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Navbar ul {
+  list-style-type: none;
+  padding: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Navbar li {
+  padding: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Navbar a {
+  color: rgb(68, 68, 68);
+  text-decoration: none;
+  transition: 1.5s;
+}
+
+.Navbar a:hover, .Navbar a:focus {
+  transform: scale(1.1);
+}
+
+.Body-Section {
+  position: relative;
+    top: 4em;
+    right: 1em;
+}
+
+.Filter-Container h3 {
+text-align: start;
+padding: 10px;
+margin-bottom: 0;
+font-weight: 500;
+text-transform: uppercase;
+}
+
+.button {
+  border-radius: 0;
+  background-color: rgb(255, 215, 35);
+}
+
+.Status-Section {
+  display: grid;
+  justify-items: end;
+}
+
+.Status-Container {
+  padding: 20px;
+}
+
+.Status-Container Button {
+  border-radius: 0;
+  background-color: rgb(4, 152, 189);
+}
+
+.Status-Container Button:hover {
+  background-color: rgb(1, 182, 228);
+}
+
+.Table-Section {
+  display: grid;
+  justify-items: end;
+}
+
+.Table-Container {
+  width: 80%;
 }
