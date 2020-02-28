@@ -75,7 +75,7 @@ export default function drawerBar(props) {
 		<Select
         className={classes.input}
         name="reqType"
-        onChange={onSelect} 
+        onChange={props.onSelect} 
         options={reqTypeOptions}
         value={reqType} 
         />
@@ -116,7 +116,7 @@ export default function drawerBar(props) {
 		<Select
         className={classes.input}
         name="reqPriority"
-        onChange={onSelect} 
+        onChange={props.onSelect} 
         options={reqPriorityOptions}
         value={reqPriority}
          />
@@ -131,7 +131,7 @@ export default function drawerBar(props) {
         </Button>
         <br/>
         <Button 
-         className={classes.btn}
+        className={classes.btn}
         onClick={submitRequest} 
         variant="contained" 
         color="primary">Send

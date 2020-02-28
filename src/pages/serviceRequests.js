@@ -10,6 +10,7 @@ import { getRequestsData, createRequest } from '../actions/requestsActions'
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withStyles } from '@material-ui/core/styles';
+import { reqPriorityOptions } from '../sampleData';
 
 const styles = theme => ({
   tableContainer: {
@@ -124,11 +125,11 @@ class serviceRequests extends Component {
         <div className='Drawer-Section'>
           <Drawerbar 
           onChange={this.onChange} 
+          onSelect={this.onSelect.bind(this)}
           reqName={reqName}
           reqDescription={reqDescription}
           reqPriority={reqPriority}
           reqType={reqType}
-          onSelect={this.onSelect}
           reqId={reqId}
           right={right}
           toggleDrawerOpen={this.toggleDrawerOpen}
