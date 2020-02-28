@@ -45,7 +45,6 @@ class serviceRequests extends Component {
 
   toggleDrawerOpen = () => {
     this.setState({right: true})
-    console.log('clicked open')
   }
 
   toggleDrawerClose = () => {
@@ -75,20 +74,20 @@ class serviceRequests extends Component {
 
 
   onSubmitRequest = (e) => {
-    const { reqName, reqId, reqDescription, reqPriority, reqStatus, reqType } = this.state;
+    const { reqName, reqId, reqDescription, reqStatus, reqType, reqPriority } = this.state;
     e.preventDefault();
 
     const requestData = {
       created_at: new Date(),
       name: reqName,
       description: reqDescription,
-      priority: reqPriority.value,
+      priority: null,
       status: reqStatus,
-      type: reqType.value,
+      type: null,
       userID: reqId
     }
 
-    this.props.createRequest(requestData, this.props.history)
+    this.props.createRequest(requestData)
     this.toggleDrawerClose()
     this.setState({notification: true})
     this.props.getRequestsData()
@@ -98,6 +97,7 @@ class serviceRequests extends Component {
     const { requests } = this.props.requests
     const { reqName, reqId, reqDescription, reqPriority, reqType, right } = this.state;
     const { classes } = this.props;
+    console.log(this.state.reqPriority)
     
     return (
       <div className='Home-Container'>
@@ -133,8 +133,7 @@ class serviceRequests extends Component {
           right={right}
           toggleDrawerOpen={this.toggleDrawerOpen}
           toggleDrawerClose={this.toggleDrawerClose} 
-          // data={[reqName, reqId, reqDescription, reqPriority, reqType, right]}
-          onSubmitRequest={this.onSubmitRequest}  />
+          submitRequest={this.onSubmitRequest}  />
         </div>
       </div>
       </div>

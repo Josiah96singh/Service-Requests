@@ -35,6 +35,7 @@ const useStyles = makeStyles({
           }
   });
 
+
 export default function drawerBar(props) {
      // eslint-disable-next-line react-hooks/rules-of-hooks
   const classes = useStyles();
@@ -42,17 +43,17 @@ export default function drawerBar(props) {
         toggleDrawerClose, 
         onChange, 
         onSelect,
-        onSubmitRequest, 
+        submitRequest, 
         right, 
         reqDescription, 
         reqId, 
         reqName, 
         reqPriority, 
         reqType } = props;
-        console.log(reqType)
+
     return (
         <div className='Drawer-Container'>
-             <Drawer className={classes.drawer} anchor="right" open={right} onClose={toggleDrawerClose}>
+        <Drawer className={classes.drawer} anchor="right" open={right} onClose={toggleDrawerClose}>
         <h3 className={classes.drawerTitle}>Create new service request</h3>
         
         {/* REQUEST NAME */}
@@ -76,7 +77,8 @@ export default function drawerBar(props) {
         name="reqType"
         onChange={onSelect} 
         options={reqTypeOptions}
-        value={reqType} />
+        value={reqType} 
+        />
 				</div> 
 
         {/* USER ID */}    
@@ -116,7 +118,8 @@ export default function drawerBar(props) {
         name="reqPriority"
         onChange={onSelect} 
         options={reqPriorityOptions}
-        value={reqPriority} />
+        value={reqPriority}
+         />
 				</div>
 
         <div className='Drawer-Buttons'>
@@ -129,7 +132,7 @@ export default function drawerBar(props) {
         <br/>
         <Button 
          className={classes.btn}
-        onClick={onSubmitRequest} 
+        onClick={submitRequest} 
         variant="contained" 
         color="primary">Send
         </Button>
