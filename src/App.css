@@ -2,33 +2,10 @@
   text-align: center;
 }
 
-.Navbar ul {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  text-decoration: none;
-  color: white;
-}
-
-.Navbar li {
-  padding: 10px;
-}
-
-.Navbar a {
-  color: rgb(68, 68, 68);
-  text-decoration: none;
-  transition: 1.5s;
-}
-
-.Navbar a:hover, .Navbar a:focus {
-  transform: scale(1.1);
-}
-
 .Body-Section {
   position: relative;
-    top: 4em;
-    right: 1em;
+  top: 4em;
+  right: 1em;
 }
 
 .Filter-Container h3 {

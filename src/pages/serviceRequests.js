@@ -11,7 +11,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withStyles } from '@material-ui/core/styles';
 import Snackbar from '@material-ui/core/Snackbar';
-import { reqTypeOptions } from '../sampleData';
 
 const styles = theme => ({
   tableContainer: {
@@ -93,14 +92,10 @@ class serviceRequests extends Component {
 
     this.props.createRequest(requestData)
     this.toggleDrawerClose()
-    // this.toggleAlert()
     this.setState({snackbarOpen: true})
     this.props.getRequestsData()
   }
 
-  toggleAlert() {
-    return alert('Success')
-  }
 
   render() {
     const { requests } = this.props.requests
@@ -108,47 +103,52 @@ class serviceRequests extends Component {
     const { classes } = this.props;    
     return (
       <div className='Home-Container'>
+
+        {/* NavBar Component */}
         <div className="Nav-Section">
         <Navbar/>
         </div>
-        <div className="Body-Section">
+
+      <div className="Body-Section">
+
+        {/* SnackBar Notification */}
         <Snackbar
          style={{color: 'green'}}
           anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
           open={this.state.snackbarOpen}
           onClose={this.snackbarClose}
           autoHideDuration={3000}
-          message={<span id="message-id">Request added successfully</span>}
-        />
+          message={<span id="message-id">Request added successfully</span>}/>
+
+
+        {/* Filter Component */}
         <div className="Filter-Section">
         <Filterbar 
         filterSearch={this.onFilterSearch} 
-        filterFields={this.filterFields} 
+        // filterFields={this.filterFields} 
         reqPriority={reqPriority} 
         reqType={reqType}
         onPrioritySelect={this.onPrioritySelect.bind(this)}
-        onTypeSelect={this.onTypeSelect.bind(this)}
-        />
-          </div>
+        onTypeSelect={this.onTypeSelect.bind(this)}/>
+        </div>
+
+        {/* StatusBar Component */}
         <div className='Status-Section'>
         <Statusbar toggleDrawer={this.toggleDrawerOpen} />
         </div>
+
+
+        {/* Table Component */}
         <div className='Table-Section'>
         <Table 
         className={classes.tableContainer} 
         requests={requests} 
         search={this.state.search}
         reqPriority={reqPriority} 
-        reqType={reqType}
-        />
-        {/* {this.state.notification === true?  
-        <Snackbar
-        anchorOrigin={{vertical: 'top', horizontal: 'center'}}
-        message="Request created successfully"
-        onClose={this.toggleNotificationClose}
-        /> : <h1>Nope</h1>} */}
+        reqType={reqType}/>
         </div>
 
+        {/* New Request Drawer Component */}
         <div className='Drawer-Section'>
           <Drawerbar 
           onChange={this.onInputChange.bind(this)} 
@@ -164,8 +164,10 @@ class serviceRequests extends Component {
           toggleDrawerClose={this.toggleDrawerClose} 
           submitRequest={this.onSubmitRequest}  />
         </div>
+
       </div>
-      </div>
+      
+    </div>
     )
   }
 }
