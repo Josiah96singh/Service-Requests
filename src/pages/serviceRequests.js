@@ -29,7 +29,6 @@ class serviceRequests extends Component {
       reqPriority: '',
       reqStatus: true,
       right: false,
-      notification: false,
       search: '',
       snackbarOpen: false
     }
@@ -47,11 +46,7 @@ class serviceRequests extends Component {
   }
 
   toggleDrawerClose = () => {
-    this.setState({right: false})
-  }
-
-  toggleNotificationClose = () => {
-    this.setState({notification: false})
+    this.setState({right: false, reqName: '', reqPriority: '', reqType: '', reqDescription: '', reqId: ''})
   }
 
   onFilterSearch(e) {
@@ -126,8 +121,8 @@ class serviceRequests extends Component {
         <Filterbar 
         filterSearch={this.onFilterSearch} 
         // filterFields={this.filterFields} 
-        reqPriority={reqPriority} 
-        reqType={reqType}
+        // reqPriority={reqPriority} 
+        // reqType={reqType}
         onPrioritySelect={this.onPrioritySelect.bind(this)}
         onTypeSelect={this.onTypeSelect.bind(this)}/>
         </div>
@@ -166,7 +161,7 @@ class serviceRequests extends Component {
         </div>
 
       </div>
-      
+
     </div>
     )
   }
